@@ -2,12 +2,14 @@
 namespace ArtAnisaDiellzaTest.Models;
 
 using ArtAnisaDiellzaTest.Controllers;
+using System.ComponentModel.DataAnnotations;
 using System.Windows;
 
 
 
 public class Movie
 {
+	[Key]
 
 	public int MovieID { get; set; }
 
