@@ -25,8 +25,7 @@ public class Movie
 
 	public MovieCategory MovieCategory { get; set; }
 
-
-
+	public string description2 { get; set; } 
 
 
 
