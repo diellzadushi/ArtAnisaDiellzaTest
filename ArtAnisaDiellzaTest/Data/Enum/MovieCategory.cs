@@ -14,6 +14,7 @@
 		Fiction,
 		Crime,
 		Thriller,
+		Cartoon
 
 
 

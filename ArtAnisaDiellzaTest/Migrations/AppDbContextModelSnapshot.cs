@@ -53,7 +53,7 @@ namespace ArtAnisaDiellzaTest.Migrations
 
                     b.HasKey("MovieID");
 
-                    b.ToTable("Movies");
+                    b.ToTable("Movies", (string)null);
                 });
 #pragma warning restore 612, 618
         }
