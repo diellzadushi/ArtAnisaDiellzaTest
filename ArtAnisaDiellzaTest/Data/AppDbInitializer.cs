@@ -60,7 +60,36 @@ namespace ArtAnisaDiellzaTest.Data.Enum
 					context.SaveChanges();
 
 					}
-				}
+
+                //Actors
+                if (!context.Actors.Any())
+                {
+                    context.Actors.AddRange(new List<Actor>()
+                    {
+                        new Actor()
+                        {
+                            FullName = "Actor 1",
+                            Bio = "This is the Bio of the first actor",
+                            ProfilePictureURL = "https://www.google.com/search?q=jim+carrey&sxsrf=ALiCzsbh_NwHSAEPvYwWCJeoQEXfqQDPDg:1671491033310&source=lnms&tbm=isch&sa=X&ved=2ahUKEwi4kqSq5Yb8AhXGQ_EDHeYbC0IQ_AUoAXoECAEQAw&biw=1536&bih=754&dpr=1.25#imgrc=rzc5r_BFfh0ZwM"
+
+                        },
+                        new Actor()
+                        {
+                            FullName = "Actor 2",
+                            Bio = "This is the Bio of the second actor",
+                            ProfilePictureURL = "https://www.google.com/search?q=tom+ellis&tbm=isch&ved=2ahUKEwjeh9qr5Yb8AhXTn_0HHf38CjUQ2-cCegQIABAA&oq=tom+ell&gs_lcp=CgNpbWcQARgAMggIABCABBCxAzIFCAAQgAQyCAgAEIAEELEDMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDoECCMQJzoKCAAQsQMQgwEQQzoLCAAQgAQQsQMQgwE6CAgAELEDEIMBOgcIIxDqAhAnOgQIABBDOgcIABCxAxBDUMkGWKEQYJAaaAFwAHgAgAGLAYgBoQeSAQMyLjaYAQCgAQGqAQtnd3Mtd2l6LWltZ7ABCsABAQ&sclient=img&ei=3O2gY96pEdO_9u8P_fmrqAM&bih=754&biw=1536#imgrc=uME6wpc6hIKQuM"
+                        },
+                        new Actor()
+                        {
+                            FullName = "Actor 3",
+                            Bio = "This is the Bio of the second actor",
+                            ProfilePictureURL = "https://www.google.com/search?q=jenna+ortega&tbm=isch&ved=2ahUKEwjz-ou45Yb8AhV09bsIHcU5AzIQ2-cCegQIABAA&oq=jenna+ortega&gs_lcp=CgNpbWcQAzIECAAQAzIECAAQAzIECAAQAzIECAAQAzIECAAQAzIECAAQAzIECAAQAzIECAAQAzIECAAQAzIICAAQsQMQgwE6BAgjECc6BQgAEIAEOgcIIxDqAhAnOgQIABBDOgcIABCxAxBDOgoIABCxAxCDARBDUIUGWPArYPQsaAFwAHgAgAFiiAGZCZIBAjEzmAEAoAEBqgELZ3dzLXdpei1pbWewAQrAAQE&sclient=img&ei=9u2gY_OnEPTq7_UPxfOMkAM&bih=754&biw=1536#imgrc=al8oKSk6_hqUVM"
+                        }
+
+                    });
+                    context.SaveChanges();
+                }
+            }
 
 			}
 
