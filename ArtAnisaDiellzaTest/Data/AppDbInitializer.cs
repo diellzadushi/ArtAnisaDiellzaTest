@@ -89,6 +89,34 @@ namespace ArtAnisaDiellzaTest.Data.Enum
                     });
                     context.SaveChanges();
                 }
+                //Producers
+                if (!context.Producers.Any())
+                {
+                    context.Producers.AddRange(new List<Producer>()
+                    {
+                        new Producer()
+                        {
+                            FullName = "Producer 1",
+                            Bio = "This is the Bio of the first actor",
+                            ProfilePictureURL = "https://www.google.com/search?tbm=isch&q=Shelton+J.+Lee#imgrc=QoV8ifZUs1N6CM"
+
+                        },
+                        new Producer()
+                        {
+                            FullName = "Producer 2",
+                            Bio = "This is the Bio of the second actor",
+                            ProfilePictureURL = "https://www.google.com/search?tbm=isch&q=Michael+Bay#imgrc=QST7-6Sw5jH5XM"
+                        },
+                        new Producer()
+                        {
+                            FullName = "Producer 3",
+                            Bio = "This is the Bio of the second actor",
+                            ProfilePictureURL = "https://www.google.com/search?tbm=isch&q=Nina+Jacobson#imgrc=dl12Cpd8XZDLuM"
+                        }
+                        
+                    });
+                    context.SaveChanges();
+                }
             }
 
 			}

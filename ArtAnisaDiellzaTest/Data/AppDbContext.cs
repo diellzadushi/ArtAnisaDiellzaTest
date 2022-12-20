@@ -17,5 +17,6 @@ namespace ArtAnisaDiellzaTest.Data
 
 		public DbSet<Movie> Movies { get; set; }
         public DbSet<Actor> Actors { get; set; }
+        public DbSet<Producer> Producers { get; set; }
     }
 }
