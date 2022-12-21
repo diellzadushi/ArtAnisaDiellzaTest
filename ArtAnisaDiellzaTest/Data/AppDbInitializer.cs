@@ -1,4 +1,6 @@
 ﻿using ArtAnisaDiellzaTest.Models;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Builder;
 namespace ArtAnisaDiellzaTest.Data.Enum
 
 {
@@ -10,9 +12,9 @@ namespace ArtAnisaDiellzaTest.Data.Enum
 			using (var serviceScope = applicationBuilder.ApplicationServices.CreateScope())
 			{
 
-				var context = serviceScope.ServiceProvider.GetService<AppDbContext>();
+				    var context = serviceScope.ServiceProvider.GetService<AppDbContext>();
 
-				context.Database.EnsureCreated();
+				//context.Database.EnsureCreated();
 
 				//Filmatttttttttttttttttttttttttttttttttttttttttt
 
@@ -113,6 +115,37 @@ namespace ArtAnisaDiellzaTest.Data.Enum
                             Bio = "This is the Bio of the second actor",
                             ProfilePictureURL = "https://www.google.com/search?tbm=isch&q=Nina+Jacobson#imgrc=dl12Cpd8XZDLuM"
                         }
+                        
+                    });
+                    context.SaveChanges();
+                }
+
+                if (!context.Actors_Movies.Any())
+                {
+                    context.Actors_Movies.AddRange(new List<Actor_Movie>()
+                    {
+                        new Actor_Movie()
+                        {
+                            ActorId = 1,
+                            MovieId = 1
+                        },
+                        new Actor_Movie()
+                        {
+                            ActorId = 3,
+                            MovieId = 1
+                        },
+
+                         new Actor_Movie()
+                        {
+                            ActorId = 1,
+                            MovieId = 2
+                        },
+                         new Actor_Movie()
+                        {
+                            ActorId = 4,
+                            MovieId = 2
+                        },
+
                         
                     });
                     context.SaveChanges();

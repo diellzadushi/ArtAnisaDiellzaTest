@@ -4,6 +4,7 @@ using ArtAnisaDiellzaTest.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ArtAnisaDiellzaTest.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221220191338_Aktori1")]
+    partial class Aktori1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -44,21 +47,6 @@ namespace ArtAnisaDiellzaTest.Migrations
                     b.ToTable("Actors");
                 });
 
-            modelBuilder.Entity("ArtAnisaDiellzaTest.Models.Actor_Movie", b =>
-                {
-                    b.Property<int>("ActorId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MovieId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ActorId", "MovieId");
-
-                    b.HasIndex("MovieId");
-
-                    b.ToTable("Actors_Movies");
-                });
-
             modelBuilder.Entity("ArtAnisaDiellzaTest.Models.Movie", b =>
                 {
                     b.Property<int>("MovieID")
@@ -82,15 +70,10 @@ namespace ArtAnisaDiellzaTest.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ProducerId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("ReleaseDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("MovieID");
-
-                    b.HasIndex("ProducerId");
 
                     b.ToTable("Movies");
                 });
@@ -115,49 +98,6 @@ namespace ArtAnisaDiellzaTest.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Producers");
-                });
-
-            modelBuilder.Entity("ArtAnisaDiellzaTest.Models.Actor_Movie", b =>
-                {
-                    b.HasOne("ArtAnisaDiellzaTest.Models.Actor", "Actor")
-                        .WithMany("Actors_Movies")
-                        .HasForeignKey("ActorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ArtAnisaDiellzaTest.Models.Movie", "Movie")
-                        .WithMany("Actors_Movies")
-                        .HasForeignKey("MovieId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Actor");
-
-                    b.Navigation("Movie");
-                });
-
-            modelBuilder.Entity("ArtAnisaDiellzaTest.Models.Movie", b =>
-                {
-                    b.HasOne("ArtAnisaDiellzaTest.Models.Producer", "Producer")
-                        .WithMany("Movies")
-                        .HasForeignKey("ProducerId");
-
-                    b.Navigation("Producer");
-                });
-
-            modelBuilder.Entity("ArtAnisaDiellzaTest.Models.Actor", b =>
-                {
-                    b.Navigation("Actors_Movies");
-                });
-
-            modelBuilder.Entity("ArtAnisaDiellzaTest.Models.Movie", b =>
-                {
-                    b.Navigation("Actors_Movies");
-                });
-
-            modelBuilder.Entity("ArtAnisaDiellzaTest.Models.Producer", b =>
-                {
-                    b.Navigation("Movies");
                 });
 #pragma warning restore 612, 618
         }

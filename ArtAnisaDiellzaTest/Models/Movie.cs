@@ -3,6 +3,7 @@ namespace ArtAnisaDiellzaTest.Models;
 
 using ArtAnisaDiellzaTest.Controllers;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Windows;
 
 
@@ -31,10 +32,14 @@ public class Movie
     [Display(Name = "MovieCategory")]
     public MovieCategory MovieCategory { get; set; }
 
+    //Relationships
+
+    public List<Actor_Movie> ?Actors_Movies { get; set; }
 
 
-
-
-
-
+    //Producer
+    
+    public int? ProducerId { get; set; }
+    [ForeignKey("ProducerId")]
+    public Producer Producer { get; set; }
 }

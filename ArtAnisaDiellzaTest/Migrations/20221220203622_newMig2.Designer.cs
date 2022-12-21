@@ -4,6 +4,7 @@ using ArtAnisaDiellzaTest.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ArtAnisaDiellzaTest.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221220203622_newMig2")]
+    partial class newMig2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -73,6 +76,9 @@ namespace ArtAnisaDiellzaTest.Migrations
                     b.Property<int>("Duration")
                         .HasColumnType("int");
 
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
                     b.Property<string>("ImageURL")
                         .HasColumnType("nvarchar(max)");
 
@@ -82,7 +88,7 @@ namespace ArtAnisaDiellzaTest.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ProducerId")
+                    b.Property<int>("ProducerId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("ReleaseDate")
@@ -90,7 +96,7 @@ namespace ArtAnisaDiellzaTest.Migrations
 
                     b.HasKey("MovieID");
 
-                    b.HasIndex("ProducerId");
+                    b.HasIndex("Id");
 
                     b.ToTable("Movies");
                 });
@@ -140,7 +146,9 @@ namespace ArtAnisaDiellzaTest.Migrations
                 {
                     b.HasOne("ArtAnisaDiellzaTest.Models.Producer", "Producer")
                         .WithMany("Movies")
-                        .HasForeignKey("ProducerId");
+                        .HasForeignKey("Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Producer");
                 });

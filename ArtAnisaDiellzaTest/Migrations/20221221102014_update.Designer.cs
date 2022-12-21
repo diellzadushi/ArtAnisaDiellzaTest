@@ -4,6 +4,7 @@ using ArtAnisaDiellzaTest.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ArtAnisaDiellzaTest.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221221102014_update")]
+    partial class update
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -83,6 +86,7 @@ namespace ArtAnisaDiellzaTest.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("ProducerId")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<DateTime>("ReleaseDate")
@@ -140,7 +144,9 @@ namespace ArtAnisaDiellzaTest.Migrations
                 {
                     b.HasOne("ArtAnisaDiellzaTest.Models.Producer", "Producer")
                         .WithMany("Movies")
-                        .HasForeignKey("ProducerId");
+                        .HasForeignKey("ProducerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Producer");
                 });
