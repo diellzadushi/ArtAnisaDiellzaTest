@@ -26,7 +26,7 @@ namespace ArtAnisaDiellzaTest.Data
             modelBuilder.Entity<Actor_Movie>().HasOne(m => m.Movie).WithMany(am => am.Actors_Movies).HasForeignKey(m => m.MovieId);
             modelBuilder.Entity<Actor_Movie>().HasOne(m => m.Actor).WithMany(am => am.Actors_Movies).HasForeignKey(m => m.ActorId);
 
-            modelBuilder.Entity<Movie>().Property(x => x.ProducerId).IsRequired(false);
+            modelBuilder.Entity<Movie>().Property(x => x.ProducerId).IsRequired(false); //profi
 
             base.OnModelCreating(modelBuilder);
         }
