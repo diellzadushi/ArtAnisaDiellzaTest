@@ -10,9 +10,9 @@ namespace ArtAnisaDiellzaTest.Data.Services
 
         Task AddAsync(Producer producer);
 
-        Producer Update(int id, Producer newProducer);
+        Task<Producer> UpdateAsync(int id, Producer newProducer);
 
-        void Delete(int id);    
+         Task DeleteAsync(int id);    
 
 
 
