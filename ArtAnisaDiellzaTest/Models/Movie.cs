@@ -15,21 +15,27 @@ public class Movie
     public int MovieID { get; set; }
 
     [Display(Name = "Name")]
+    [Required(ErrorMessage = "Name is required")]
     public string ?Name { get; set; }
 
     [Display(Name = "Description")]
+    [Required(ErrorMessage = "Description is required")]
     public string ?Description { get; set; }
 
     [Display(Name = "ImageURL")]
+    [Required(ErrorMessage = "ImageURL is required")]
     public string ?ImageURL { get; set; }
 
     [Display(Name = "Duration")]
+    [Required(ErrorMessage = "Duration is required")]
     public int Duration { get; set; }
 
     [Display(Name = "ReleaseDate")]
+    [Required(ErrorMessage = "ReleaseDate is required")]
     public DateTime ReleaseDate { get; set; }
 
     [Display(Name = "MovieCategory")]
+    [Required(ErrorMessage = "MovieCategory is required")]
     public MovieCategory MovieCategory { get; set; }
 
     //Relationships
